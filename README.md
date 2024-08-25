@@ -1,2 +1,2 @@
 ## <ins>**Batch Script Archive**</ins>
-Some `script.cmd` files
+Some `script.cmd` or `script.bat` files
