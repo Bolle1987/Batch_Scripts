@@ -51,24 +51,24 @@ set red=[38;5;160m
 set redd=[38;5;124m
 set redz=[38;5;88m
 
-@echo รรรรรรรรรรรรรรรรรรรรรรรรยป
-@echo ยบ                       ยบ
-@echo ยบ   %red%Farben in Batches%green%   ยบ
-@echo ยบ                       ยบ
-@echo รรรรรรรรรรรรรรรรรรรรรรรรยผ
+@echo ษอออออออออออออออออออออออป
+@echo บ                       บ
+@echo บ   %red%Farben in Batches%green%   บ
+@echo บ                       บ
+@echo ศอออออออออออออออออออออออผ
 echo.
 echo %goldm%0%green% = Schwarz        %goldm%8%green% = Dunkelgrau
 echo %goldm%1%green% = Dunkelblau     %goldm%9%green% = Blau
-echo %goldm%2%green% = Dunkelgrยn     %goldm%A%green% = Grยn
-echo %goldm%3%green% = Blaugrยn       %goldm%B%green% = Zyan
+echo %goldm%2%green% = Dunkelgrn     %goldm%A%green% = Grn
+echo %goldm%3%green% = Blaugrn       %goldm%B%green% = Zyan
 echo %goldm%4%green% = Dunkelrot      %goldm%C%green% = Rot
 echo %goldm%5%green% = Lila           %goldm%D%green% = Magenta
 echo %goldm%6%green% = Ocker          %goldm%E%green% = Gelb
-echo %goldm%7%green% = Hellgrau       %goldm%F%green% = Weiรก
+echo %goldm%7%green% = Hellgrau       %goldm%F%green% = Weiแ
 echo.
 echo Beispiel : %goldm%color 0A%green%
 echo %goldm%0%green% = Hintergrund (Schwarz)
-echo %goldm%A%green% = Schrift (Grยn)
+echo %goldm%A%green% = Schrift (Grn)
 echo.
 cd %windir%\system32
 C:
