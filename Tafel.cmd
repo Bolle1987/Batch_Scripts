@@ -1,31 +1,31 @@
-@echo off & color 2 & cls & title Bolle (%0)
-MODE CON COLS=44 LINES=27
+@echo off & color 2 & cls & title Bolle (%~nx0)
+mode con cols=44 lines=27 >nul 2>&1
 cls
-echo. 
-echo. 
-echo. 
+echo.
+echo.
+echo.
 echo.
 echo         ___________________________
-echo        l                           l
-echo        l         B o l l e         l
-echo        l                           l
-echo        l                           l
-echo        l                           l
-echo        l                           l
-echo        l                           l
-echo      _ l                           l _
-echo     / )l                           l( \
-echo    / / l                           l \ \
-echo  _( (  l                           l  ) )_
-echo (((\ \ l_/}_____________________{\_l / /)))
+echo        ^|                           ^|
+echo        ^|         B o l l e         ^|
+echo        ^|                           ^|
+echo        ^|                           ^|
+echo        ^|                           ^|
+echo        ^|                           ^|
+echo        ^|                           ^|
+echo      _ ^|                           ^| _
+echo     / )^|                           ^|( \
+echo    / / ^|                           ^| \ \
+echo  _( (  ^|                           ^|  ) )_
+echo (((\ \ ^|_/}_____________________{\_^| / /)))
 echo (\\\\ \_/ /                     \ \_/ ////)
 echo  \       /                       \       /
 echo   \    _/                         \_    /
 echo   /   /                             \   \
 echo  /   /                               \   \
 echo.
-echo. 
-echo. 
-echo. 
+echo.
+echo.
+echo.
 pause
-exit
+exit /b 0
