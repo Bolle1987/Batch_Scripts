@@ -17,9 +17,5 @@ set "SCRIPT=%~f0"
 rem PowerShell-Single-Quotes escapen: ' -> ''
 set "SCRIPT=%SCRIPT:'=''%"
 powershell -NoProfile -WindowStyle Hidden -Command "Start-Process -FilePath '%SCRIPT%' -Verb RunAs" >nul 2>&1
-
-if errorlevel 1 (
-    start "" cmd /c "color C & echo. & echo UAC-Abfrage wurde abgebrochen oder ist fehlgeschlagen. & echo. & pause"
-    exit /b 1
-)
+if errorlevel 1 (start "" cmd /c "color C & echo. & echo UAC-Abfrage wurde abgebrochen oder ist fehlgeschlagen. & echo. & pause" & exit /b 1)
 exit /b 0
