@@ -8,15 +8,8 @@ pause
 exit /b 0
 
 :checkPrivileges
-rem Adminrechteprüfung ueber fltmc (schnell und lokal)
-if exist "%SystemRoot%\System32\fltmc.exe" (
-    fltmc >nul 2>&1
-    if not errorlevel 1 goto gotPrivileges
-)
-
-rem Fallback falls fltmc nicht greift
-net file >nul 2>&1
-if not errorlevel 1 goto gotPrivileges
+net session >nul 2>&1 && goto gotPrivileges
+net file    >nul 2>&1 && goto gotPrivileges
 
 rem Script mit UAC-Elevation neu starten
 rem Absoluten Skriptpfad holen und UAC-Elevation auch ermöglichen wenn Script im Ordner mit Apostrophen liegt
