@@ -12,10 +12,10 @@ echo.
 echo  [1] Microsoft Store neu installieren (wsreset)
 echo  [2] Xbox App Downloadseite oeffnen
 echo.
-set /p CHOICE=Bitte Auswahl treffen: 
+set /p AUSWAHL=Bitte Auswahl treffen: 
 
-if "%CHOICE%"=="1" goto OPTION1
-if "%CHOICE%"=="2" goto OPTION2
+if "%AUSWAHL%"=="1" goto OPTION1
+if "%AUSWAHL%"=="2" goto OPTION2
 echo.
 echo Beende
 timeout /t 1 >nul
@@ -23,9 +23,9 @@ echo.
 exit
 
 :OPTION1
-goto CHECK_PRIVILEGES
+goto checkPrivileges
 
-:GOT_PRIVILEGES
+:gotPrivileges
 cls
 echo ======================================
 echo.
@@ -43,14 +43,14 @@ echo.
 pause
 exit
 
-:CHECK_PRIVILEGES
-NET FILE >nul 2>&1
-if "%ERRORLEVEL%"=="0" (
-    goto GOT_PRIVILEGES
-) else (
-    powershell -Command "Start-Process '%~f0' -Verb RunAs -ArgumentList '1'"
-    exit /b
-)
+:checkPrivileges
+net session >nul 2>&1 && goto gotPrivileges
+net file    >nul 2>&1 && goto gotPrivileges
+set "SCRIPT=%~f0"
+set "SCRIPT=%SCRIPT:'=''%"
+powershell -NoProfile -WindowStyle Hidden -Command "Start-Process -FilePath '%SCRIPT%' -Verb RunAs -ArgumentList '1'" >nul 2>&1
+if errorlevel 1 (start "" cmd /c "color C & echo. & echo UAC-Abfrage wurde abgebrochen oder ist fehlgeschlagen. & echo. & pause" & exit /b 1)
+exit /b 0
 
 :OPTION2
 cls
