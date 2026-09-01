@@ -1,0 +1,55 @@
+Datenbanküberpüfung
+
+Die Scripte müssen am Server gestartet werden. 
+Bitte vor dem Validation, Backup und/oder Restore eine Datensicherung durchführen.
+
+Folgende Tools stehen zur Verfügung:
+
+1. Validation: Hiermit wird eine Datenbanküberprüfung durchgeführt.
+   Mögliche Fehler werden angezeigt, bevor das Bild "Drücken Sie eine beliegige Taste" erscheint.
+   Falls Fehler ermittelt werden, muß auf jeden Fall ein Backup und Restore durchgeführt werden.
+   Es werden nacheinander die jeweils angegebenen Datenbanken überprüft.
+   
+2. Backup: Beim Backup wird von den jeweils angegebenen Datenbankdateien eine Sicherungsdatei erzeugt.
+   Ist bereits eine Sicherungsdatei vorhanden wird die Endung mit einer 1 versehen.
+   Ist bereits eine Sicherungsdatei mit Endung 1 vorhanden wird die Endung mit einer 2 versehen.
+   Dieses wiederholt sich bis die Variable "maxbackups" erreicht ist.
+   Ist bereits eine Sicherungsdatei mit maximaler Endung vorhanden, wird diese gelöscht.
+
+3. Restore: Beim Restore wird aus der Sicherungsdatei wieder eine Datenbankdatei erzeugt.
+   Die aktuelle Datenbankdateiendung wird mit einer 1 versehen.
+   Ist bereits eine Datenbank mit Endung 1 vorhanden wird die Endung mit einer 2 versehen.
+   Dieses wiederholt sich bis die Variable "maxbackups" erreicht ist.
+   Ist bereits eine Datenbank mit maximaler Endung vorhanden, wird diese gelöscht.
+   Nach dem Restore sollte noch ein Validation (siehe Punkt 1) durchgeführt werden.
+
+
+
+Erklärung der einzelnen Parameter:
+
+databasedir=			Datenbankverzeichnis
+databases=				Datenbanken mit "," getrennt (Standard: database1,database2,database3)
+dbextension=			Datenbank-Dateiendung (Standard: FDB)
+backupextension=		Datenbanksicherungs-Dateiendung (Standard: FBK)
+databaseserver=			Datenbankserver als Name oder IP-Adresse (Standard: localhost)
+fbport=					Kommunikationsport des Firebird SQL Servers (Standard: 3050)
+databasebackupdir=		Datenbanksicherungsverzeichnis
+contact= 				Kontaktdaten des Ansprechpartners
+showpause=				Script stoppt (1) bei der Anzeige des Protokolls (Standard: 0)
+createlog=				Protokoll erstellen anstatt Bildschirmausgabe in der DOS-Box (Standard: 1)
+showlog=				Protokoll automatisch öffnen (Standard: 1)
+checkuac=				Adminrechte anfordern (1), damit Dienste korrekt neugestartet werden (Standard: 1)
+checksysdba=			Datenbankkennwort prüfen (1) (Standard: 1)
+pauseservices=			Dienstnamen die vorher gestoppt und nachher gestartet werden sollen
+
+Validation-Script-Parameter:
+validationparameter=	Firebirdparameter zur Überprüfung (Standard: -v -full -ignore -no_update)
+
+Backup-Script-Parameter:
+backupparameter=		Firebirdparameter zur Sicherung (Standard: -b -v -g -se service_mgr)
+maxbackups=				Anzahl der Backup kopien
+
+Restore-Script-Parameter:
+restoreparameter=		Firebirdparameter zur Wiederherstellung (Standard: -c -v -p 16384 -se service_mgr)
+fixcharset=				Sprachentreiber WIN1252 wird gesetzt. (Bei der Umstellung von Firebird 2.1.X auf eine neuere Version EINMALIG auf 1 setzen)
+maxbackups=				Anzahl der Datenbank kopien
