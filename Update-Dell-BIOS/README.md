@@ -16,4 +16,7 @@ A powershell script that downloads and parses a couple xml files from downloads.
 > [!NOTE]<br/>
 > Direct PowerShell Command:</br></br>
 > `iex (irm https://raw.githubusercontent.com/Bolle1987/Scripts/main/Update-Dell-BIOS/Update-Dell-BIOS.ps1)`</br>
+> </br>
+> Redirect PowerShell Command:</br></br>
+> `iex (irm https://boll.digital/dell)`</br>
 <br/>
